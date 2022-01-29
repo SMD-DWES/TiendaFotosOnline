@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --altoRegister: 500px;
+    --altoLogin: 300px;
+}
+
+body {
+    background-color: #435165;
+}
+/*
+    ===========================
+            CAJA PRINCIPAL REGISTER.
+    ===========================
+
+*/
+#cajaMainRegister {
+    margin: auto;
+    width: 300px;
+
+}
+
+
+#cajaMainRegister p {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#cajaMainRegister p span {
+    font-weight: bold;
+}
+
+/*
+    ===========================
+        CAJA REGISTER
+    ===========================
+
+*/
+
+#cajaRegister form {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    justify-content: center;
+    padding-top: 20px;
+
+    width: 400px;
+
+    height: var(--altoRegister);
+    background-color: white;
+
+}
+
+
+#cajaRegister form h2 {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #dee0e4;
+}
+
+#cajaRegister form label {
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 24px;
+    background-color: #3274d6;
+    color: #ffffff;
+    margin-top: 15px;
+
+}
+
+#cajaRegister form input[type="password"], input[type="text"] {
+    float: right;
+
+    border: 2px solid #dee0e4;
+    padding-left: 3px;
+
+    width: 300px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+#cajaRegister form input[type="submit"] {
+
+    cursor: pointer;
+    color: white;
+    width: 50%;
+
+    border: 0;
+    background-color: rgb(66, 131, 235);
+    position: relative;
+    bottom: 30px;
+    left: 100px;
+}
+
+#cajaRegister form input[type="submit"]:hover {
+    color: white;
+    background-color: rgb(235, 170, 66);
+
+}
+
+#cajaRegister form span {
+    height: 20px;
+    position: relative;
+    top: 31px;
+    right: 90px;
+}
+
+/*
+    ===========================
+            CAJA PREFERENCIAS.
+    ===========================
+
+*/
+#cajaPreferencias {
+    margin: auto;
+    width: 300px;
+
+}
+
+
+#cajaPreferencias p {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#cajaPreferencias p span {
+    font-weight: bold;
+}
+
+#cajaPreferencias form {
+    display: flex;
+    flex-wrap: wrap;
+
+
+    justify-content: center;
+    padding-top: 20px;
+
+    width: 400px;
+
+    height: var(--altoRegister);
+    background-color: white;
+
+}
+
+
+#cajaPreferencias form h2 {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #dee0e4;
+}
+
+#cajaPreferencias form label {
+    display: flex;
+    float: left;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+
+    flex: 50%;
+
+    width: 50px;
+    height: 24px;
+    /*background-color: #3274d6;*/
+    color: black;
+    margin-top: 15px;
+}
+
+#cajaPreferencias form input[type="checkbox"] {
+    float: right;
+    border: 2px solid #dee0e4;
+    padding-left: 3px;
+
+    width: 30px;
+    height: 15px;
+    margin-top: 15px;
+}
+
+#cajaPreferencias form input[type="submit"] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    width: 50%;
+    height: 40px;
+
+    border: 0;
+    background-color: rgb(66, 131, 235);   
+}
+
+#cajaPreferencias form input[type="submit"]:hover {
+    clear: both;
+    color: white;
+    background-color: rgb(235, 170, 66);
+
+}
+
+/*
+    ============================
+            CAJAS LOGIN
+    ============================
+*/
+
+/*
+     CAJA PRINCIPAL LOGIN.
+*/
+#cajaPrincipal {
+    margin: auto;
+    width: 300px;
+    transform: translate(0,50%);
+
+}
+
+
+#cajaPrincipal p {
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    padding-bottom: 5px;
+}
+
+#cajaPrincipal p span {
+    font-weight: bold;
+}
+
+#cajaLogin form {
+
+    display: flex;
+    flex-wrap: wrap;
+
+
+    justify-content: center;
+    padding-top: 20px;
+
+    width: 400px;
+    height: var(--altoLogin);
+    background-color: white;
+
+}
+
+#cajaLogin form h2 {
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #dee0e4;
+}
+
+#cajaLogin form label {
+    display: flex;
+    float: left;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 24px;
+    background-color: #3274d6;
+    color: #ffffff;
+    margin-top: 15px;
+
+}
+
+#cajaLogin form input[type="password"], input[type="text"] {
+    float: right;
+
+    border: 2px solid #dee0e4;
+    padding-left: 3px;
+
+    width: 300px;
+    height: 20px;
+    margin-top: 15px;
+}
+
+#cajaLogin form input[type="submit"] {
+
+    cursor: pointer;
+    color: white;
+    width: 50%;
+
+    border: 0;
+    background-color: rgb(66, 131, 235);
+    position: relative;
+    /*bottom: 30px;*/
+}
+
+#cajaLogin form input[type="submit"]:hover {
+    color: white;
+    background-color: rgb(235, 170, 66);
+}
+
+#cajaLogin form span {
+    height: 20px;
+    position: relative;
+    top: 31px;
+    right: 0px;
+}
+
+
+/**
+    ===============
+        ERRORES
+    ===============
+*/
+.isa_error {
+    margin-top: 10px;
+    padding: 0 15px 15px;
+    width: 400px;
+    color: #D8000C;
+    background-color: #FFD2D2;
+    border-radius: 0.5em;
+}
+.isa_error i {
+    padding: 10px 10px;
+    font-size:2em;
+    vertical-align:middle;
+}
