@@ -1,50 +1,40 @@
 <?php
     session_start();
-    if(!isset($_SESSION["id"])) header("Location: public/account/login.php");
-
-    //Comprobación de errores 
-    if(isset($_GET["error"])) {
-        if($_GET["error"] == "1024") {
-            echo
-            "
-            <div class='alert'>
-                <span class='closebtn'>&times;</span>  
-                <strong>ERROR</strong> : Solo se admiten extensiones de tipo <b>.jpg, .jpeg y .png</b> y un peso máximo de 5MB.
-            </div>
-            ";
-        }
-    }
+    if(!isset($_SESSION["id"])) header("Location: ../account/login.php");
 
     function realizarPedido() {
         if(isset($_POST["enviar"])) {
+            if(isset($_POST["imprimir"])) {
 
-            if($_POST["imprimir"] == "Album") {
-                echo
-                "
-                    <form action='../../interno/subirImagenes.php' method='POST' enctype='multipart/form-data'>
-                        <label for='accion'>Nombre del album</label>
-                        <input type='text' name='nombreAlbum' id='nombreAlbum'>
+                if($_POST["imprimir"] == "Album") {
+                    echo
+                    "
+                        <form action='../../interno/subirImagenes.php' method='POST' enctype='multipart/form-data'>
+                            <label for='accion'>Nombre del album</label>
+                            <input type='text' name='nombreAlbum' id='nombreAlbum'>
 
-                        <input type='file' name='file' id='file'>
+                            <input type='file' name='file[]' id='file' multiple>
 
-                        <input type='submit' value='Subir' name='enviar[]'>
-                    </form>
-                ";
+                            <input type='submit' value='Subir' name='enviar[]'>
+                        </form>
+                    ";
+                }
+                if($_POST["imprimir"] == "Imprimir") {
+                    echo
+                    "
+                        <form action='../../interno/subirImagenes.php' method='POST' enctype='multipart/form-data'>
+                            <label for='accion'>Seleccione un archivo para imprimir...</label>
+
+                            <input type='file' name='file' id='file'>
+
+                            <input type='submit' value='Subir' name='enviar[]'>
+                        </form>
+                    ";
+                }
+            } else {
+                echo '[ERROR] No has seleccionado ninguna acción a realizar.';
             }
-            if($_POST["imprimir"] == "Imprimir") {
-                echo
-                "
-                    <form action='../../interno/subirImagenes.php' method='POST' enctype='multipart/form-data'>
-                        <label for='accion'>Seleccione un archivo para imprimir...</label>
-
-                        <input type='file' name='file' id='file'>
-
-                        <input type='submit' value='Subir' name='enviar[]'>
-                    </form>
-                ";
-            }
-
-        }    
+        }
     }
 ?>
 <!DOCTYPE html>

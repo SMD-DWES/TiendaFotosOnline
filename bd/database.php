@@ -45,6 +45,15 @@ class Database extends Operaciones
         return false;
     }
 
+    function listaPedidos($idUsuario) {
+        $sql = "SELECT idPedido, tipo, fecha FROM pedidos WHERE idUsuario=$idUsuario";
+
+        $consulta = $this->consulta($sql);
+        if(!$consulta) return $this->mysql->errno;
+
+        return $consulta;
+    }
+
     
     /**
      * Crea una nueva cuenta
@@ -65,6 +74,17 @@ class Database extends Operaciones
         $consulta->close();
         //return $this->mysql->insert_id;
         return true;
+    }
+
+    function aniadirPedido($idUsuario, $tipo) {
+        $sql = "INSERT INTO pedidos(idUsuario, tipo) VALUES('$idUsuario', '$tipo')";
+
+        $consulta = $this->consulta($sql);
+
+        if(!$consulta) return $this->mysql->errno;
+
+        //$consulta->close();
+        return $this->mysql->insert_id;
     }
     
 }

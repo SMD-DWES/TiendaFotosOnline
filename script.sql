@@ -19,7 +19,7 @@ CREATE TABLE Usuarios(
 CREATE TABLE Pedidos(
     idPedido smallint NOT NULL AUTO_INCREMENT,
     idUsuario smallint NOT NULL,
-    tipo char(2) NOT NULL,
+    tipo char(2) NOT NULL CHECK(tipo='a' OR tipo='f'),
     fecha TIMESTAMP NOT NULL DEFAULT now(),
 
     CONSTRAINT PK_idPedido PRIMARY KEY (idPedido),

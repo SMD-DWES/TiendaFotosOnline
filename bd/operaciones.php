@@ -20,4 +20,12 @@ class Operaciones
         $consulta->num_rows;
     }
 
+    function consulta($sql) {
+        return $this->mysql->query($sql);
+    }
+
+    function selectArray($consulta) {
+        return $consulta->fetch_array(MYSQLI_ASSOC);
+    }
+
 }

@@ -59,6 +59,18 @@ main form input[type=submit]:hover {
 }
 
 
+#tusFotos {
+    display: flex;
+
+    flex-wrap: nowrap;
+    gap: 20px;
+
+}
+#tusFotos img{
+    width: 300px;
+    height: 300px;
+
+}
 
 /**
 Alertas
