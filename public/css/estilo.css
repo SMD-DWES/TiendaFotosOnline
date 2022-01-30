@@ -35,6 +35,10 @@ nav .logout {
 */
 
 main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
     margin: 50px auto;
     background-color: #5C7362;
     width: 50%;
@@ -59,14 +63,17 @@ main form input[type=submit]:hover {
 }
 
 
-#tusFotos {
-    display: flex;
-
-    flex-wrap: nowrap;
+.tusFotos {
+    flex-shrink: 2;
     gap: 20px;
 
 }
-#tusFotos img{
+.tusFotos p {
+    margin: 0;
+    height: 20px;
+}
+
+.tusFotos a img{
     width: 300px;
     height: 300px;
 

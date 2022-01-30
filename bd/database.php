@@ -46,7 +46,7 @@ class Database extends Operaciones
     }
 
     function listaPedidos($idUsuario) {
-        $sql = "SELECT idPedido, tipo, fecha FROM pedidos WHERE idUsuario=$idUsuario";
+        $sql = "SELECT idPedido, nombreAlbum, tipo, fecha FROM pedidos WHERE idUsuario=$idUsuario";
 
         $consulta = $this->consulta($sql);
         if(!$consulta) return $this->mysql->errno;
