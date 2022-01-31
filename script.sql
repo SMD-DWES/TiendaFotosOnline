@@ -7,7 +7,7 @@ CREATE DATABASE sergioTiendaFotos;
 USE sergioTiendaFotos;
 
 CREATE TABLE Usuarios(
-    idUsuario smallint NOT NULL UNSIGNED AUTO_INCREMENT,
+    idUsuario smallint UNSIGNED NOT NULL AUTO_INCREMENT,
     nombre varchar(50) NOT NULL,
     apellido varchar(50) NOT NULL,
     correo varchar(50) NOT NULL UNIQUE,
@@ -17,8 +17,9 @@ CREATE TABLE Usuarios(
 );
 
 CREATE TABLE Pedidos(
-    idPedido smallint NOT NULL UNSIGNED AUTO_INCREMENT,
+    idPedido smallint UNSIGNED NOT NULL AUTO_INCREMENT,
     idUsuario smallint UNSIGNED NOT NULL,
+    nombreAlbum VARCHAR(50) NULL DEFAULT NULL,
     tipo char(2) NOT NULL CHECK(tipo='a' OR tipo='f'),
     fecha TIMESTAMP NOT NULL DEFAULT now(),
 
