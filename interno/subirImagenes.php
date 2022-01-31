@@ -10,20 +10,29 @@ if(isset($_POST["enviar"])) {
     {
         session_start();
         $idUsuario = $_SESSION["id"];
-        $total = $_FILES["file"]["name"];
+        $total = $_FILES["file"];
 
         //Añade el pedido del usuario a la BD
         $bd = new Database();
         $idPedido = $bd->aniadirPedido($idUsuario,'f');
 
+        //Si no hay ningún archivo subido damos error.
+        if($_FILES["file"]["name"] == null) {
+            header("Location: ../index.php?error=1000");
+            exit();
+        }
+
+        if(isset($_POST["enviar"]))
+
         //Iteramos sobre cada fichero del FILES...
         for($i=0;$i<count($total);$i++) {
                 //Variable con el nombre del archivo en minusculas.
-                $nombreArchivo = strtolower($_FILES["file"]["name"][$i]);
+                $nombreArchivo = strtolower($_FILES["file"]["name"]);
 
                 //Verificación de formato válido
+                echo print_r($nombreArchivo);
                 if(!extensionWhitelist($nombreArchivo)) {
-                    header("Location: ../index.php?error=1024");
+                    //header("Location: ../index.php?error=1024");
                     exit();
                 }
 
@@ -61,7 +70,7 @@ if(isset($_POST["enviar"])) {
                         $newName .= $nombreArchivo[$j];
                     }
                 }
-                //echo "<br>Nuevo nombre: " . $newName;
+                echo "<br>Nuevo nombre: " . $newName;
 
                 //Movemos el archivo de memoria al directorio del usuario.
                 move_uploaded_file($_FILES["file"]["tmp_name"][$i], $directorioRecursos . $newName);
@@ -79,6 +88,7 @@ if(isset($_POST["enviar"])) {
  * @return - Devuelve true si la extensión del archivo pasado es permitida, false si no lo es.
  */
 function extensionWhitelist($nombre) {
+    echo $nombre;
     $formatos = FILE_EXTENSIONS_ALLOWED;
     //Buscamos en el string el primer resultado que coincida con un punto
     //y nos los saltamos para que solo muestre la extensión.
