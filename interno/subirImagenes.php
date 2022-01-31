@@ -52,7 +52,7 @@ if(isset($_POST["enviar"])) {
             if(!file_exists($directorioRecursos))
                 //Especificamos que se cree un directorio con permisos de lectura y escritura para el 
                 //dueño y el grupo, y NINGUNO para otros (1 1 0).
-                mkdir($directorioRecursos,"0660");//fopen($idUsuario . "/$nombreArchivo", "w");
+                mkdir($directorioRecursos,"0660", true);//fopen($idUsuario . "/$nombreArchivo", "w");
 
             //Iteramos palabra por palabra del nombre del archivo para comprobar si
             //hay un caracter no valido.
