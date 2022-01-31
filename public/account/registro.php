@@ -26,10 +26,9 @@
 
                 $bd = new Database();
                 $cuentaStatus = $bd->crearCuenta($_POST["username"], $_POST["surname"], $_POST["email"], $_POST["password"]);
-                
                 //if($cuentaStatus) //mostrar algo si todo está bien...
 
-                if($cuentaStatus == 1062) {
+                if($cuentaStatus === 1062) {
                     echo 
                     '
                         <div class="isa_error">
@@ -89,16 +88,5 @@
                 ?>
             </div>
         </div>
-        <!--<div id="cajaMainRegister">
-            <p><span>Flash</span>Cards</p>
-            <div id="cajaPreferencias">
-                <form action="#" method="post">
-                    <h2>Selección de preferencias</h2>
-                    <?php
-                        preferencias();
-                    ?>
-                </form>
-            </div>
-        </div>-->
     </body>
 </html>

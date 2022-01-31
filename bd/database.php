@@ -45,6 +45,9 @@ class Database extends Operaciones
         return false;
     }
 
+    /**
+     * Devuelve la consulta con la lista de pedidos del usuario.
+     */
     function listaPedidos($idUsuario) {
         $sql = "SELECT idPedido, nombreAlbum, tipo, fecha FROM pedidos WHERE idUsuario=$idUsuario";
 
@@ -76,6 +79,10 @@ class Database extends Operaciones
         return true;
     }
 
+    /**
+     * Añade un nuevo pedido a el usuario...
+     * @return id del usuario que hizo el pedido. (para crear la carpeta)
+     */
     function aniadirPedido($idUsuario, $tipo) {
         $sql = "INSERT INTO pedidos(idUsuario, tipo) VALUES('$idUsuario', '$tipo')";
 
