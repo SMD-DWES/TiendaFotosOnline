@@ -31,15 +31,6 @@
                 </div>
                 ";
             }
-            if($_GET["error"] == "1000") {
-                echo
-                "
-                <div class='alert'>
-                    <span class='closebtn'>&times;</span>  
-                    <strong>ERROR</strong> : No has subido ninguna imagen o album...
-                </div>
-                ";
-            }
             if($_GET["error"] == "0") {
                 echo
                 "

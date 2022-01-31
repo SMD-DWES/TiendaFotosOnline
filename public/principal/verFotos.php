@@ -14,66 +14,63 @@
         $bd = new Database();
         $result = $bd->listaPedidos($idUsuario);
 
-        if($bd->numFilas($result) > 0) {
-            //Iteramos sobre el array que nos devolverá todos nuestros pedidos.
-            while ($fila = $bd->selectArray($result)) {
-                //Definimos la dirección de la ruta
-                $ruta = "../../recursos/$fila[idPedido]";
 
-                //Comprobamos que exista la ruta...
-                if(file_exists($ruta)) {
-                    $directorios = opendir("../../recursos/$fila[idPedido]");
+        //Iteramos sobre el array que nos devolverá todos nuestros pedidos.
+        while ($fila = $bd->selectArray($result)) {
+            //Definimos la dirección de la ruta
+            $ruta = "../../recursos/$fila[idPedido]";
 
-                    //Si el pedido es un album, mostraremos una carpeta...
-                    if($fila["tipo"] == "a") {
-                        echo
-                        "
-                            <div class='tusFotos'>
-                                <p>Nombre album: $fila[nombreAlbum]</p>
-                                <p>Pedido número: $fila[idPedido]</p>
-                                <p>Fecha: $fila[fecha]</p>
+            //Comprobamos que exista la ruta...
+            if(file_exists($ruta)) {
+                $directorios = opendir("../../recursos/$fila[idPedido]");
 
-                                <a href='verFotos.php?tipo=a'><img src='../../imgs/folderIcon.png'></a>
-                            </div>
-                        ";
-                    }
+                //Si el pedido es un album, mostraremos una carpeta...
+                if($fila["tipo"] == "a") {
+                    echo
+                    "
+                        <div class='tusFotos'>
+                            <p>Nombre album: $fila[nombreAlbum]</p>
+                            <p>Pedido número: $fila[idPedido]</p>
+                            <p>Fecha: $fila[fecha]</p>
 
-                    //Recorremos la carpeta del pedido para mostrar las fotos.
-                    while(($archivos = readdir($directorios)) !== false) {
-                        //Omitimos los "directorios especiales"
-                        if($archivos != "." && $archivos != "..") {
-                            //Si el pedido es un album, lo mostramos como carpeta
-                            /*if(isset($_GET["tipo"]) && $_GET["tipo"] == "a") {
-                                    echo
-                                    "
-                                        <div class='tusFotos'>
-                                            <p>Nombre: $archivos</p>
-                                            <p>Pedido número: $fila[idPedido]</p>
-                                            <p>Fecha: $fila[fecha]</p>
-        
-                                            <a href='$ruta/$archivos'><img src='$ruta/$archivos'></a>
-                                        </div>
-                                    ";
-                            }
-                            //Si el pedido es una foto, la mostramos
-                            else if($fila["tipo"] == "f")*/
+                            <a href='verFotos.php?tipo=a'><img src='../../imgs/folderIcon.png'></a>
+                        </div>
+                    ";
+                }
+
+                //Recorremos la carpeta del pedido para mostrar las fotos.
+                while(($archivos = readdir($directorios)) !== false) {
+                    //Omitimos los "directorios especiales"
+                    if($archivos != "." && $archivos != "..") {
+                        //Si el pedido es un album, lo mostramos como carpeta
+                        /*if(isset($_GET["tipo"]) && $_GET["tipo"] == "a") {
                                 echo
                                 "
                                     <div class='tusFotos'>
                                         <p>Nombre: $archivos</p>
                                         <p>Pedido número: $fila[idPedido]</p>
                                         <p>Fecha: $fila[fecha]</p>
-
+    
                                         <a href='$ruta/$archivos'><img src='$ruta/$archivos'></a>
                                     </div>
                                 ";
                         }
+                        //Si el pedido es una foto, la mostramos
+                        else if($fila["tipo"] == "f")*/
+                            echo
+                            "
+                                <div class='tusFotos'>
+                                    <p>Nombre: $archivos</p>
+                                    <p>Pedido número: $fila[idPedido]</p>
+                                    <p>Fecha: $fila[fecha]</p>
+
+                                    <a href='$ruta/$archivos'><img src='$ruta/$archivos'></a>
+                                </div>
+                            ";
                     }
-                    closedir($directorios);
                 }
+                closedir($directorios);
             }
-        } else {
-            echo "Todavía no has realizado ningún pedido...";
         }
     }
 ?>

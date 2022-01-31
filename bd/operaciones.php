@@ -16,8 +16,8 @@ class Operaciones
         return $this->mysql->prepare($sql);
     }
 
-    function numFilas($consulta) {
-        return $consulta->num_rows;
+    function num_filas($consulta) {
+        $consulta->num_rows;
     }
 
     function consulta($sql) {
